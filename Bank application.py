@@ -49,9 +49,9 @@ class Bank:
             if holder['Holder_name'] == name and holder['Account_number'] == acc_num:
                 holder['Balance'] += amount
                 print(f"✅ ₹{amount} deposited successfully. New Balance: ₹{holder['Balance']}")
-                return
-            else:
-                print("❌ Account not found. Please check the details.")    
+                break
+        else:
+            print("❌ Account not found. Please check the details.")    
         print(Bank.Holder_details)
 
     def withdraw(self):
@@ -64,9 +64,10 @@ class Bank:
                 if holder['Balance'] >= amount:
                     holder['Balance'] -= amount
                     print(f"✅ ₹{amount} withdrawn successfully. New Balance: ₹{holder['Balance']}")
-                else:
-                    print("❌ Insufficient balance.")
-                return
+                    break
+        else:
+            print("❌ Insufficient balance.")
+        
         print("❌ Account not found.")
         print(Bank.Holder_details)
 
